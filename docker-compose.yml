@@ -71,12 +71,13 @@ services:
       - "9112" # Charge
     ports:
       - "9735:9735" # Lightning
+      - "9112:9112" # Charge
     links:
       - bitcoind
 
   bitcoind:
     restart: always
-    image: bitcoind
+    image: lodotek/bitcoin-core:0.16.1
     environment:
       BITCOIN_EXTRA_ARGS: |
         rpcport=43782
